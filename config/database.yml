@@ -1,0 +1,22 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: cracksapp
+  pool: 5
+  username: maxi
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: cracksapp_test
+  pool: 5
+  username: maxi
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: cracksapp_production
+  pool: 5
+
