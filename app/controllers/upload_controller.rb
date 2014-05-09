@@ -2,40 +2,42 @@ class UploadController < ApplicationController
 
 	def index
 
-    return head :bad_request unless params[:device] && params[:email] && params[:type] && params[:data]
+    #head :ok and return if params[:device].empty? || params[:email].empty? || params[:type].empty? || params[:data].empty?
 
-    user = User.find(:email => params[:email])
+    params[:email] = "maxiperezc@gmail.com"
+
+    user = User.find_by(email: params[:email])
     user ||= User.create!(:email => params[:email], :digest => "digest")
 
-    device = Device.find(:number => params[:device])
-    device ||= Device.create!(:number => params[:device], :user_id => user.id, :finger => params[:finger])
+    device = Device.find_by(number: params[:device])
+    device ||= Device.create!(number: params[:device], user_id: user.id, finger: params[:finger])
 
-    transport
+    transport(device)
 
     head :ok
   end
 
-  def transport
+  def transport(device)
     data = JSON.parse(params[:data])
 
     case params[:type]
     
     when "accounts"
-      Account.store(data)
+      Account.store(data, device)
     when "calls"
-      #Call.store(data)
+      Call.store(data, device)
     when "contacts"
-      #Contact.store(data)
+      Contact.store(data, device)
     when "location"
-      #Location.store(data)
+      Location.store(data, device)
     when "bookmarks"
-      #Bookmark.store(data)
+      Bookmark.store(data, device)
     when "sms"
-      #SMS.store(data)
+      Sms.store(data, device)
     when "social"
-      #Social.store(data)
+      Social.store(data, device)
     when "profile"
-      #Profile.store(data)
+      Profile.store(data, device)
     end
 
   end

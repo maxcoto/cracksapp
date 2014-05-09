@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: MyString
+  thread_number: MyString
+  address: MyString
+  person: MyString
+  date: MyString
+  protocol: MyString
+  read: MyString
+  status: MyString
+  reply_path_present: MyString
+  subject: MyString
+  body: MyText
+  service_center: MyString
+  locked: MyString
+  kind: 
+
+two:
+  number: MyString
+  thread_number: MyString
+  address: MyString
+  person: MyString
+  date: MyString
+  protocol: MyString
+  read: MyString
+  status: MyString
+  reply_path_present: MyString
+  subject: MyString
+  body: MyText
+  service_center: MyString
+  locked: MyString
+  kind: 
