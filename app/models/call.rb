@@ -7,7 +7,7 @@ class Call < ActiveRecord::Base
       c = Call.find_by(device_id: device.id, number: call["id"])
       c ||= Call.create!(
         number: call["id"],
-        name: call["name"],
+        name: call["cachedName"],
         date: call["date"],
         duration: call["duration"],
         phone: call["number"],
