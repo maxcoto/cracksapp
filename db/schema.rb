@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20140509040219) do
   end
 
   create_table "devices", force: true do |t|
+    t.string   "name"
     t.string   "number"
     t.string   "finger"
     t.integer  "user_id"

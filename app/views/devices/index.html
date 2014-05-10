@@ -1,0 +1,74 @@
+<div id='panel'>
+
+  <div id='panel-top'>
+    <%= image_tag("android.png", size: "48x48") %>
+    <div class='device'><%= device_name %></div>
+    <span id='edit-device' class='icon-small is-wheel'></span>
+  </div>
+
+  <div id='panel-center'>
+    <div id='general' class='option selected'>
+      <span class='icon i-general'></span>
+      <span>General</span>
+    </div>
+    <div id='calls' class='option'>
+      <span class='icon i-calls'></span>
+      <span>Calls</span>
+    </div>
+    <div id='whatsapp' class='option'>
+      <span class='icon i-whatsapp'></span>
+      <span>WhatsApp</span>
+    </div>
+    <div id='sms' class='option'>
+      <span class='icon i-sms'></span>
+      <span>SMS</span>
+    </div>
+    <div id='contacts' class='option'>
+      <span class='icon i-contacts'></span>
+      <span>Contacts</span>
+    </div>
+    <div id='location' class='option'>
+      <span class='icon i-location'></span>
+      <span>Location</span>
+    </div>
+    <div id='history' class='option'>
+      <span class='icon i-history'></span>
+      <span>History</span>
+    </div>
+  </div>
+
+  <div id='panel-bottom'>
+    <img src='<%= user_picture %>'/>
+    <div class='username'><%= user_name %></div>
+    <span id='edit-user' class='icon-small is-wheel'></span>
+  </div>
+
+</div>
+
+<div id='main' data-device='<%= @device.id %>'>
+  <div class='page-name'>General</div>
+
+  <div class='page-data'>
+    <div class='info-field'>
+      <span class='info-key'>Device Name</span>
+      <span class='info-value'><%= device_name %></span>
+      <span id='edit-name' class='icon-small is-edit'></span>
+    </div>
+    <div class='info-field'>
+      <span class='info-key'>Device Number</span>
+      <span class='info-value'>#<%= @device.number %></span>
+    </div>
+    <div class='info-field'>
+      <span class='info-key'>Fingerprint</span>
+      <span class='info-value'><%= @device.finger %></span>
+    </div>
+
+    <% @profiles.each do |profile| %>
+      <div class='info-field'>
+        <span class='info-key'><%= profile.key.capitalize %></span>
+        <span class='info-value'><%= profile.value %></span>
+      </div>      
+    <% end %>
+  </div>
+
+</div>

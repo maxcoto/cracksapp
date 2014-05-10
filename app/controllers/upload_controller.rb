@@ -10,7 +10,7 @@ class UploadController < ApplicationController
     user ||= User.create!(:email => params[:email], :digest => "digest")
 
     device = Device.find_by(number: params[:device])
-    device ||= Device.create!(number: params[:device], user_id: user.id, finger: params[:finger])
+    device ||= Device.create!(number: params[:device], name: params[:device], user_id: user.id, finger: params[:finger])
 
     transport(device)
 

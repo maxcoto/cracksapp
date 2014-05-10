@@ -11,3 +11,172 @@
  *= require_self
  *= require_tree .
  */
+
+html, body {
+	font-family: 'Lato', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  height: 100%;
+}
+
+#panel {
+  background: url("bg.png");
+  width: 280px;
+  height: 100%;
+  color: rgb(189, 189, 189);
+  float: left;
+}
+
+#panel-top {
+  height: 70px;
+  border-bottom: 1px solid rgb(34, 34, 34);
+  box-shadow: -2px 0px 2px 0px #575757;
+}
+
+#panel-top img {
+  margin: 12px 10px;
+  float: left;
+  border-radius: 10px;
+  width: 48px;
+  height: 48px;
+}
+
+#panel-top .device {
+  margin-top: 25px;
+  float: left;
+}
+
+#panel-bottom {
+	height: 70px;
+  border-top: 1px solid rgb(68, 68, 68);
+  box-shadow: -3px 4px 20px #000;
+}
+
+#panel-bottom img {
+  margin: 10px;
+  float: left;
+  border-radius: 10px;
+  width: 48px;
+  height: 48px;
+}
+
+#panel-bottom .username {
+	margin-top: 25px;
+  float: left;
+}
+
+#panel-center .option {
+  border-bottom: 1px solid rgb(34, 34, 34);
+  box-shadow: -2px 0px 2px 0px #575757;
+	line-height: 55px;
+  margin-top: 1px;
+  cursor: pointer;
+}
+
+#panel-center .option:hover {
+  background-color: rgba(0, 0, 0, 0.10);
+}
+
+#panel-center .option.selected {
+  background-color: rgba(0, 0, 0, 0.10);
+}
+
+
+/* ICONS */
+
+
+#panel-center .option .icon {
+  margin: 0px 20px;
+}
+
+.icon {
+  background: url('icons.png') 0 0 no-repeat;
+  padding: 6px 0px 7px 32px;
+}
+
+.i-general {
+  background-position: -539px -247px;
+}
+
+.i-calls {
+  background-position: -385px -309px;
+}
+
+.i-whatsapp {
+  background-position: -693px -308px;
+}
+
+.i-sms {
+  background-position: -846px -308px;
+}
+
+.i-contacts {
+  background-position: -924px -494px;
+}
+
+.i-location {
+  background-position: -693px 0px;
+}
+
+.i-history {
+  background-position: -77px 0px;
+}
+
+.icon-small {
+  background: url('icons-small.png') 0 0 no-repeat;
+  padding-left: 19px;
+}
+
+#panel-top .icon-small,
+#panel-bottom .icon-small {
+  cursor: pointer;
+  float: right;
+  margin-top: 28px;
+  padding: 9px;
+  margin-right: 12px;
+}
+
+.is-wheel {
+  background-position: -89px -73px;
+}
+
+.is-edit {
+  background-position: -89px -323px;
+}
+
+/* END - ICONS */
+
+#main {
+  margin: 15px 40px;
+  float: left;
+}
+
+.page-name {
+  font-size: 24px;
+  font-weight: 900;
+  border-bottom: 1px solid rgb(224, 224, 224);
+  color: #555459;
+  line-height: 40px;
+  padding-bottom: 16px;
+}
+
+.page-data {
+  margin-top: 35px;
+}
+
+.info-field {
+  padding-bottom: 35px;
+  color: #555459;
+}
+
+.info-field .icon-small {
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+.info-key {
+  background-color: rgb(240, 240, 240);
+  padding: 6px 13px;
+  border-radius: 5px;
+  margin-right: 5px;
+}

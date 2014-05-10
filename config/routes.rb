@@ -4,8 +4,15 @@ Cracksapp::Application.routes.draw do
 
   post 'upload' => 'upload#index'
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'devices#index'
+
+  get 'general/:id' => 'general#index'
+  get 'calls/:id' => 'calls#index'
+  get 'whatsapp/:id' => 'whatsapp#index'
+  get 'sms/:id' => 'sms#index'
+  get 'contacts/:id' => 'contacts#index'
+  get 'location/:id' => 'location#index'
+  get 'history/:id' => 'history#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
