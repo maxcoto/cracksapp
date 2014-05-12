@@ -22,3 +22,5 @@ $ ->
       $('#main').html data
 
     $(this).addClass('selected')
+
+  $('#panel-center #general').click();

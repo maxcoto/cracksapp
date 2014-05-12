@@ -8,8 +8,6 @@ class DevicesController < ApplicationController
 
     @device = @devices.first
 
-    @profiles = @device ? Profile.where(device_id: @device.id) : nil
-
   end
 
 end

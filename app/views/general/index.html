@@ -1,0 +1,24 @@
+<div class='page-name'>General</div>
+
+<div class='page-data'>
+  <div class='info-field'>
+    <span class='info-key'>Device Name</span>
+    <span class='info-value'><%= device_name %></span>
+    <span id='edit-name' class='icon-small is-edit'></span>
+  </div>
+  <div class='info-field'>
+    <span class='info-key'>Device Number</span>
+    <span class='info-value'>#<%= @device.number %></span>
+  </div>
+  <div class='info-field'>
+    <span class='info-key'>Fingerprint</span>
+    <span class='info-value'><%= @device.finger %></span>
+  </div>
+
+  <% @profiles.each do |profile| %>
+    <div class='info-field'>
+      <span class='info-key'><%= profile.key.capitalize %></span>
+      <span class='info-value'><%= profile.value %></span>
+    </div>      
+  <% end %>
+</div>
