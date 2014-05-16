@@ -4,7 +4,7 @@ class ContactsController < ApplicationController
 
     device = Device.find(params[:id])
 
-    @contacts = device ? Contact.where(device_id: device.id) : nil
+    @contacts = device ? Contact.where(device_id: device.id).order(:name) : nil
 
     render :layout => false
 

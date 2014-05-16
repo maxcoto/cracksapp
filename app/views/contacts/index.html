@@ -1,7 +1,19 @@
 <div class='page-name'>Contacts</div>
 
 <div class='page-data'>
-  <% @contacts.each do |contact| %>
-    <%= debug contact %>
+  <% unless @contacts.empty? %>
+    <% @contacts.each do |contact| %>
+	    <div class='call-tag'>
+	      <div class='call-kind'><img src='/assets/contact.png' /></div>
+	      
+	      <div class='call-left'>
+	        <div class='call-name'><%= contact.name || "Anonymous" %></div>
+	        <div class='call-phone'><%= phone_list(contact.phones) %></div>
+	      </div>
+	    </div>
+	  <% end %>
+  <% else %>
+    <div class="empty-data">No Data</div>
   <% end %>
+  
 </div>

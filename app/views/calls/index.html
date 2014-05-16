@@ -1,7 +1,22 @@
 <div class='page-name'>Calls</div>
 
 <div class='page-data'>
-  <% @calls.each do |call| %>
-    <%= debug call %>
+  <% unless @calls.empty? %>
+    <% @calls.each do |call| %>
+      <div class='call-tag'>
+        <div class='call-kind' title='<%= call.kind %> call'><img src='/assets/<%= call.kind %>.png' /></div>
+        
+        <div class='call-left'>
+          <div class='call-name'><%= call.name || "Anonymous" %></div>
+          <div class='call-phone'><%= call.phone %></div>
+        </div>
+        <div class='call-right'>
+          <div class='call-date'><%= friendly_date(call.date) %></div>
+          <div class='call-duration'><%= call.duration %> seconds</div>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="empty-data">No Data</div>
   <% end %>
 </div>

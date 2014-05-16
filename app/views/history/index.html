@@ -1,7 +1,18 @@
 <div class='page-name'>Browser History</div>
 
 <div class='page-data'>
-  <% @histories.each do |history| %>
-    <%= debug history %>
+  <% unless @histories.empty? %>
+  	<% @histories.each do |history| %>
+	    <div class='call-tag'>
+	      <div class='call-kind'><img src='/assets/history.png' /></div>
+	      
+	      <div class='call-left'>
+	        <div class='call-name'><%= link_to history_title(history), history.url, target: '_blank' %></div>
+	        <div class='call-phone'>Visited: <%= friendly_date(history.last_visited) %></div>
+	      </div>
+	    </div>
+  	<% end %>
+  <% else %>
+  	<div class="empty-data">No Data</div>
   <% end %>
 </div>

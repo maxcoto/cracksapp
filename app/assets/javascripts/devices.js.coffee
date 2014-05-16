@@ -6,7 +6,7 @@
 $ ->
 
   # Style Fixes
-  $('#panel-center').css('height', $('body').outerHeight() - 140)
+  $('#panel-center').css('height', $('body').outerHeight() - 143)
   $('#main').css('width', $('body').outerWidth() - 360)
   # End - Style Fixes
 
@@ -20,7 +20,8 @@ $ ->
     url = '/' + $(this).attr('id') + '/' + device
     $.get url, (data) ->
       $('#main').html data
+      $('.page-data').css('height', $('body').outerHeight() - 72)
 
     $(this).addClass('selected')
 
-  $('#panel-center #general').click();
+  $('#panel-center #history').click();

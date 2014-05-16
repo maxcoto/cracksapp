@@ -147,7 +147,7 @@ html, body {
 /* END - ICONS */
 
 #main {
-  margin: 15px 40px;
+  margin: 15px 40px 0px 40px;
   float: left;
 }
 
@@ -161,11 +161,18 @@ html, body {
 }
 
 .page-data {
-  margin-top: 35px;
+  overflow-y: auto;
+}
+
+/* GENERAL */
+
+.empty-data {
+  margin-top: 30px;
+  color: #555459;
 }
 
 .info-field {
-  padding-bottom: 35px;
+  padding-top: 40px;
   color: #555459;
 }
 
@@ -179,4 +186,53 @@ html, body {
   padding: 6px 13px;
   border-radius: 5px;
   margin-right: 5px;
+}
+
+/* CALLS */
+
+.call-tag {
+  height: 51px;
+  padding: 12px 0px;
+  border-bottom: 1px solid rgb(245, 245, 245);
+}
+
+.call-tag .call-kind {
+  float: left;
+  margin-right: 10px;
+}
+
+.call-tag .call-left {
+  float: left;
+}
+
+.call-tag .call-name {
+  color: #555459;
+  font-size: 18px;
+  line-height: 27px;
+}
+
+.call-tag .call-name a {
+  color: #555459;
+  text-decoration: none;
+}
+
+.call-tag .call-name a:hover {
+  text-decoration: underline;
+}
+
+.call-tag .call-phone {
+  color: rgb(173, 173, 173);
+  font-size: 14px;
+}
+
+.call-tag .call-right {
+  float: right;
+  color: rgb(173, 173, 173);
+  font-size: 14px;
+  margin-right: 15px;
+  width: 115px;
+}
+
+.call-tag .call-date {
+  line-height: 27px;
 }

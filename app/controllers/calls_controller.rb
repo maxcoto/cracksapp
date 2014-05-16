@@ -4,7 +4,7 @@ class CallsController < ApplicationController
 
     device = Device.find(params[:id])
 
-    @calls = device ? Call.where(device_id: device.id) : nil
+    @calls = device ? Call.where(device_id: device.id).order('number DESC').limit(100) : nil
 
     render :layout => false
 
