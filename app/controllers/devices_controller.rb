@@ -1,13 +1,10 @@
 class DevicesController < ApplicationController
 
+  before_action :authenticate_user!
+
   def index
-
-    @user = User.first
-
-    @devices = Device.where(user_id: @user.id)
-
-    @device = @devices.first
-
+    @devices = Device.where(user_id: current_user.id)
+    @device = @devices.try(:first)
   end
 
 end

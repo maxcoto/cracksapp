@@ -1,5 +1,7 @@
 class LocationController < ApplicationController
 
+  before_action :authenticate_user!
+
   def index
 
     device = Device.find(params[:id])

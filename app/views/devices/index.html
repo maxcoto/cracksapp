@@ -3,47 +3,58 @@
   <div id='panel-top'>
     <%= image_tag("android.png", size: "48x48") %>
     <div class='device'><%= device_name %></div>
-    <span id='edit-device' class='icon-small is-wheel'></span>
+    <% if @devices.count > 1 %>
+      <span id='edit-device' class='icon-small is-wheel'></span>
+    <% end %>
   </div>
 
   <div id='panel-center'>
-    <div id='general' class='option selected'>
-      <span class='icon i-general'></span>
-      <span>General</span>
-    </div>
-    <div id='calls' class='option'>
-      <span class='icon i-calls'></span>
-      <span>Calls</span>
-    </div>
-    <div id='whatsapp' class='option'>
-      <span class='icon i-whatsapp'></span>
-      <span>WhatsApp</span>
-    </div>
-    <div id='sms' class='option'>
-      <span class='icon i-sms'></span>
-      <span>SMS</span>
-    </div>
-    <div id='contacts' class='option'>
-      <span class='icon i-contacts'></span>
-      <span>Contacts</span>
-    </div>
-    <div id='location' class='option'>
-      <span class='icon i-location'></span>
-      <span>Location</span>
-    </div>
-    <div id='history' class='option'>
-      <span class='icon i-history'></span>
-      <span>History</span>
-    </div>
+    <% if @device %>
+      <div id='general' class='option selected'>
+        <span class='icon i-general'></span>
+        <span>General</span>
+      </div>
+      <div id='calls' class='option'>
+        <span class='icon i-calls'></span>
+        <span>Calls</span>
+      </div>
+      <div id='whatsapp' class='option'>
+        <span class='icon i-whatsapp'></span>
+        <span>WhatsApp</span>
+      </div>
+      <div id='sms' class='option'>
+        <span class='icon i-sms'></span>
+        <span>SMS</span>
+      </div>
+      <div id='contacts' class='option'>
+        <span class='icon i-contacts'></span>
+        <span>Contacts</span>
+      </div>
+      <div id='location' class='option'>
+        <span class='icon i-location'></span>
+        <span>Location</span>
+      </div>
+      <div id='history' class='option'>
+        <span class='icon i-history'></span>
+        <span>History</span>
+      </div>
+    <% end %>
   </div>
 
   <div id='panel-bottom'>
     <img src='<%= user_picture %>'/>
     <div class='username'><%= user_name %></div>
     <span id='edit-user' class='icon-small is-wheel'></span>
+    <div id='menu-user' class='menu'>
+      <ul>
+        <li><%= link_to("Your Profile", 'undone') %></li>
+        <li class='divider'></li>
+        <li><%= link_to("Sign Out", destroy_user_session_path, :method => :delete) %></li>
+      </ul>
+    </div>
   </div>
 
 </div>
 
-<div id='main' data-device='<%= @device.id %>'>
+<div id='main' data-device='<%= @device.try(:id) %>'>
 </div>

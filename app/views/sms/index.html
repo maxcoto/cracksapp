@@ -1,7 +1,34 @@
-<div class='page-name'>SMS</div>
+<div class='page-name'>
+  <div class='left'>SMS</div>
+  <%= select_tag "address", options_for_select(@addresses) %>
+</div>
 
 <div class='page-data'>
-  <% @sms.each do |message| %>
-    <%= debug message %>
-  <% end %>
+  <% unless @address %>
+    <div class="empty-data">No Data</div>
+  <% end%>
 </div>
+
+<script>
+  var loadSMS = function(address){
+    var url = '/sms/' + window.device + '/messages/' + address;
+    $.get(url, function(data){
+      var page = $('.page-data');
+      page
+        .html(data)
+        .scrollTop(page[0].scrollHeight);
+    });
+  };
+
+  $('#address').change(function(){
+    var address = $("select option:selected").val();
+    loadSMS(address);
+  });
+
+  var address = "<%= @address %>";
+  if(address !== "") {
+    loadSMS(address);  
+  }
+</script>
+
+

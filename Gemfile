@@ -41,6 +41,9 @@ end
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
+# Use Device
+gem 'devise'
+
 # Use debugger
 gem 'debugger', group: [:development, :test]
 

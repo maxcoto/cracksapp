@@ -1,0 +1,19 @@
+<div class='sign'>
+  <div class='centered'>
+    <div class='centered-vertical'>
+      <h2>Sign up, it's free !</h2>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), autocomplete: "off") do |f| %>
+        <%= devise_error_messages! %>
+
+        <%= f.email_field :email, autofocus: false, autocomplete: "off", placeholder: "Email Address" %>
+        <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
+
+        <%= f.submit "Sign Up" %>
+
+      <% end %>
+
+      <%#= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>

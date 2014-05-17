@@ -5,23 +5,28 @@
 
 $ ->
 
-  # Style Fixes
-  $('#panel-center').css('height', $('body').outerHeight() - 143)
-  $('#main').css('width', $('body').outerWidth() - 360)
-  # End - Style Fixes
+  $('html').click ->
+    $('.menu').removeClass('open')
 
+  $('#edit-user').click (event) ->
+    event.stopPropagation()
+    $('#menu-user').toggleClass('open')
 
-  device = $('#main').data('device');
+  fitScreen = ->
+    $('#panel-center').css('height', $('body').outerHeight() - 143)
+    $('#main').css('width', $('body').outerWidth() - 360)
+    $('.page-data').css('height', $('body').outerHeight() - 72)
 
+  fitScreen()
+  $(window).resize -> fitScreen()
+
+  window.device = $('#main').data('device');
   $('#panel-center .option').click ->
-
     $('#panel-center .option').removeClass('selected')
-
-    url = '/' + $(this).attr('id') + '/' + device
+    url = '/' + $(this).attr('id') + '/' + window.device
     $.get url, (data) ->
       $('#main').html data
-      $('.page-data').css('height', $('body').outerHeight() - 72)
-
+      fitScreen()
     $(this).addClass('selected')
 
-  $('#panel-center #history').click();
+  $('#panel-center #sms').click();
