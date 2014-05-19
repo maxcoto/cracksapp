@@ -4,11 +4,6 @@
 
 $ ->
 
-  fitToScreen = ->
-    _body = $('body').outerHeight() / 2;
-    _height = $('.sign .centered').height() / 2;
-    $('.sign .centered').css('padding-top', _body - _height);
-
-  fitToScreen()
-  $(window).resize -> fitToScreen()
+  $('.install-btn').click ->
+    $('#install-step').attr('src', '/assets/usecases/use-case-' + $(this).data('index') + '.png');
 

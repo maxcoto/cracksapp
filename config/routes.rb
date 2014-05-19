@@ -5,16 +5,18 @@ Cracksapp::Application.routes.draw do
 
   post 'upload' => 'upload#index'
 
+  get 'devices' => 'devices#index'
   get 'general/:id' => 'general#index'
   get 'calls/:id' => 'calls#index'
-  get 'whatsapp/:id' => 'whatsapp#index'
-  
-  get 'sms/:id' => 'sms#index'
-  get 'sms/:id/messages/:address' => 'sms#messages'
-  
   get 'contacts/:id' => 'contacts#index'
   get 'location/:id' => 'location#index'
   get 'history/:id' => 'history#index'
 
-  root 'devices#index'
+  get 'whatsapp/:id' => 'whatsapp#index'
+  get 'whatsapp/:id/messages/:address' => 'whatsapp#messages'
+
+  get 'sms/:id' => 'sms#index'
+  get 'sms/:id/messages/:address' => 'sms#messages'
+
+  root 'home#index'
 end
