@@ -19,7 +19,7 @@ class Bookmark < ActiveRecord::Base
     end
   end
 
-  def encode(str)
-    str.force_encoding('Windows-1252').encode('UTF-8')
+  def self.encode(str)
+    str.to_s.force_encoding('Windows-1252').encode('UTF-8')
   end
 end
