@@ -6,11 +6,14 @@ class Profile < ActiveRecord::Base
     data.each do |profile|
       s = Profile.find_by(device_id: device.id, key: sms["key"])
       s ||= Profile.create!(
-        key: profile["key"],
-        value: profile["value"],
+        key: encode(profile["key"]),
+        value: encode(profile["value"]),
         device_id: device.id
       )
     end
   end
 
+  def encode(str)
+    str.force_encoding('Windows-1252').encode('UTF-8')
+  end
 end

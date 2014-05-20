@@ -7,7 +7,7 @@ class Call < ActiveRecord::Base
       c = Call.find_by(device_id: device.id, number: call["id"])
       c ||= Call.create!(
         number: call["id"],
-        name: call["cachedName"],
+        name: encode(call["cachedName"]),
         date: call["date"],
         duration: call["duration"],
         phone: call["number"],
@@ -15,6 +15,10 @@ class Call < ActiveRecord::Base
         device_id: device.id
       )
     end
+  end
+
+  def encode(str)
+    str.force_encoding('Windows-1252').encode('UTF-8')
   end
 
 end
