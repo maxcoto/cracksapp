@@ -1,10 +1,18 @@
 <div class='page-name'>General</div>
 
 <div class='page-data'>
-  <div class='info-field'>
+  <div class='info-field' id='first-selector'>
     <span class='info-key'>Device Name</span>
-    <span class='info-value'><%= device_name %></span>
-    <span id='edit-name' class='icon-small is-edit'></span>
+    
+    <span id='no-editing-name'>
+      <span class='info-value' id='current-name'><%= device_name(@device) %></span>
+      <span class='icon-small is-edit edit-name'></span>
+    </span>
+
+    <span id='editing-name' style='display: none;'>
+      <input id='new-name' type='text' />
+      <a class='set-new-name button'>Set</a>
+    </span>
   </div>
   <div class='info-field'>
     <span class='info-key'>Device Number</span>

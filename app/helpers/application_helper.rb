@@ -1,10 +1,10 @@
 module ApplicationHelper
 
-  def device_name
-    return "No Devices Found" unless @device
+  def device_name(device)
+    return "No Devices Found" unless device
     name = ""
-    name = "#" if @device.name == @device.number
-    name += @device.name
+    name = "#" if device.name == device.number
+    name += device.name
   end
 
   def user_name

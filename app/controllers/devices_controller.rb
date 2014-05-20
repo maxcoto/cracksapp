@@ -7,4 +7,12 @@ class DevicesController < ApplicationController
     @device = @devices.try(:first)
   end
 
+  def change
+  	device = Device.find(params[:id])
+  	device.name = params[:name]
+  	device.save!
+
+    head :ok
+  end
+
 end

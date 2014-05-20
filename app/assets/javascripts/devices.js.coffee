@@ -8,6 +8,10 @@ $ ->
   $('html').click ->
     $('.menu').removeClass('open')
 
+  $('#edit-device').click (event) ->
+    event.stopPropagation()
+    $('#menu-device').toggleClass('open')
+
   $('#edit-user').click (event) ->
     event.stopPropagation()
     $('#menu-user').toggleClass('open')
@@ -20,7 +24,9 @@ $ ->
   fitScreen()
   $(window).resize -> fitScreen()
 
+
   window.device = $('#main').data('device');
+
   $('#panel-center .option').click ->
     $('#panel-center .option').removeClass('selected')
     url = '/' + $(this).attr('id') + '/' + window.device
@@ -29,4 +35,23 @@ $ ->
       fitScreen()
     $(this).addClass('selected')
 
-  $('#panel-center #sms').click();
+  autoClickPanel = ->
+    $('#panel-center #general').click()
+
+  autoClickPanel()
+
+
+  $('.change-device').click ->
+    newDevice = { name: $(this).html(), id: $(this).data('device') }
+
+    $(this)
+      .data('device', window.device)
+      .html $('.device').html()
+
+    $('.device').html(newDevice.name)
+    $('#main').data('device', newDevice.id);
+
+    window.device = newDevice.id
+    autoClickPanel()
+
+
