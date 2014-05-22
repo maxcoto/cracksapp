@@ -8,7 +8,10 @@
       <div id='menu-device' class='menu'>
         <ul>
           <% (@devices - [@device]).each do |device| %>
-            <li><a data-device='<%= device.id %>' class='change-device'><%= device_name(device) %></a></li>
+            <li>
+              <span class='icon-small is-device'></span>
+              <a data-device='<%= device.id %>' class='change-device'><%= device_name(device) %></a>
+            </li>
           <% end %>
         </ul>
       </div>
@@ -50,9 +53,15 @@
     <span id='edit-user' class='icon-small is-wheel'></span>
     <div id='menu-user' class='menu'>
       <ul>
-        <li><%= link_to("Your Profile", 'undone') %></li>
+        <li>
+          <span class='icon-small is-profile'></span>
+          <%= link_to("Your Profile", 'undone') %>
+        </li>
         <li class='divider'></li>
-        <li><%= link_to("Sign Out", destroy_user_session_path, :method => :delete) %></li>
+        <li>
+          <span class='icon-small is-signout'></span>
+          <%= link_to("Sign Out", destroy_user_session_path, :method => :delete) %>
+        </li>
       </ul>
     </div>
   </div>
