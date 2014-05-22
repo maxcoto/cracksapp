@@ -3,7 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-
-  $('.install-btn').click ->
-    # $('#install-step').attr('src', '/assets/usecases/use-case-' + $(this).data('index') + '.png');
-
+	$('#your-profile').click ->
+		$('#panel-center .option').removeClass('selected')
+		$.get '/profile', (data) -> $('#main').html data

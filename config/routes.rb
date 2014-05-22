@@ -5,6 +5,8 @@ Cracksapp::Application.routes.draw do
 
   post 'upload' => 'upload#index'
 
+  get 'profile' => 'profile#index'
+
   get 'devices' => 'devices#index'
   get 'devices/:id/change/:name' => 'devices#change'
 
