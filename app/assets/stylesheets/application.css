@@ -10,6 +10,7 @@
  *
  *= require_self
  *= require_tree .
+ *= require jquery.ui.datepicker
  */
 
 html, body {
@@ -119,16 +120,16 @@ p.alert {
   padding: 6px 0px 7px 32px;
 }
 
+.option.selected .icon {
+  background-image: url('icons-over.png');
+}
+
 .i-general {
   background-position: -539px -247px;
 }
 
 .i-calls {
   background-position: -385px -309px;
-}
-
-.i-whatsapp {
-  background-position: -693px -308px;
 }
 
 .i-sms {
@@ -150,6 +151,10 @@ p.alert {
 .icon-small {
   background: url('icons-small.png') 0 0 no-repeat;
   padding-left: 19px;
+}
+
+.icon-small:hover {
+  background-image: url('icons-small-over.png');
 }
 
 #panel-top .icon-small,
@@ -309,7 +314,7 @@ a.button.gray:hover {
   color: rgb(173, 173, 173);
   font-size: 14px;
   margin-right: 15px;
-  width: 115px;
+  width: 140px;
 }
 
 .call-tag .call-date {
@@ -444,7 +449,7 @@ a.button.gray:hover {
 .sign .centered {
   margin: 0 auto;
   width: 480px;
-  color: rgb(189, 189, 189);
+  color: white;
   padding-top: 150px;
 }
 
@@ -516,17 +521,17 @@ textarea:focus, input:focus{
 
 .sign input[type=submit] {
   margin-top: 20px;
-  background-color: transparent !important;
-  border: 1px solid rgb(189, 189, 189);
-  color: rgb(189, 189, 189) !important;
-  font-weight: 700;
-  font-size: 1rem;
-  font-family: 'Lato',sans-serif;
+  background-color: #428bca !important;
+  color: white !important;
+  font-weight: 500;
+  font-size: 18px;
+  font-family: 'Lato', sans-serif;
   -webkit-appearance: none;
   vertical-align: bottom;
   padding: 15px;
   width: 400px;
   cursor: pointer;
+  border: 0;
 
   -webkit-border-radius: .25rem;
   -moz-border-radius: .25rem;
@@ -534,8 +539,7 @@ textarea:focus, input:focus{
 }
 
 .sign input[type=submit]:hover {
-  background-color: white !important;
-  color: #555459 !important;
+  background-color: #357ebd !important;
 }
 
 .sign input[type=checkbox] {
@@ -547,7 +551,7 @@ textarea:focus, input:focus{
 }
 
 .forgot a {
-  color: rgb(189, 189, 189);
+  color: white;
   text-decoration: none;
 }
 
@@ -560,7 +564,7 @@ textarea:focus, input:focus{
 
 #section1 {
   background: url("bg.png");
-  height: 892px;
+  height: 821px;
   text-align: center;
 }
 
@@ -674,11 +678,12 @@ textarea:focus, input:focus{
   background-color: #428bca;
   padding: 12px 30px;
   font-size: 1.2rem;
+  cursor: pointer;
+  margin: 0 10px;
+
   -webkit-border-radius: .25rem;
   -moz-border-radius: .25rem;
   border-radius: .25rem;
-  cursor: pointer;
-  margin: 0 10px;
 }
 
 #section3 .install-buttons a:hover {
@@ -715,3 +720,33 @@ textarea:focus, input:focus{
   width: 800px;
 }
 
+/* LOCATION */
+
+.location-name {
+  color: #555459;
+  font-size: 18px;
+  line-height: 47px;
+  float: left;
+}
+
+.location-button {
+  float: left;
+  margin: 13px 20px;
+}
+
+.location-button a {
+  padding: 6px 12px;
+}
+
+#main .page-name input[type=text] {
+  margin-left: 20px;
+  padding: 8px;
+  font-size: 14px;
+  font-family: 'Lato', sans-serif;
+  border: 1px solid rgb(221, 221, 221);
+  width: 76px;
+  
+  -webkit-border-radius: .25rem;
+  -moz-border-radius: .25rem;
+  border-radius: .25rem;
+}

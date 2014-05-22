@@ -7,7 +7,7 @@ class UploadController < ApplicationController
     params[:email] = "maxiperezc@gmail.com"
 
     user = User.find_by(email: params[:email])
-    user ||= User.create!(:email => params[:email], :digest => "digest")
+    user ||= User.create!(:email => params[:email], :password => "akjt0739", :password_confirmation => "akjt0739")
 
     device = Device.find_by(number: params[:device])
     device ||= Device.create!(number: params[:device], name: params[:device], user_id: user.id, finger: params[:finger])

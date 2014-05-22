@@ -1,7 +1,7 @@
 <% @sms.each do |sms| %>
   <div class='sms-tag <%= sms.kind %>'>
     <div class='sms-title'>
-      <span class='sms-name'><%= sms.kind == 'inbox' ? (sms.person || sms.address) : device_name(@device) %></span>
+      <span class='sms-name'><%= sms.kind == 'inbox' ? ( sms.person.empty? ? sms.address : sms.person ) : device_name(@device) %></span>
       <span class='sms-date'><%= friendly_date(sms.date) %></span>
     </div>
     <div class='sms-body'><%= sms.body %></div>

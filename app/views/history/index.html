@@ -3,14 +3,16 @@
 <div class='page-data'>
   <% unless @histories.empty? %>
   	<% @histories.each do |history| %>
-	    <div class='call-tag'>
-	      <div class='call-kind'><img src='/assets/history.png' /></div>
-	      
-	      <div class='call-left'>
-	        <div class='call-name'><%= link_to history_title(history), history.url, target: '_blank' %></div>
-	        <div class='call-phone'>Visited: <%= friendly_date(history.last_visited) %></div>
-	      </div>
-	    </div>
+	    <% unless history.title.empty? %>
+  	    <div class='call-tag'>
+  	      <div class='call-kind'><img src='/assets/history.png' /></div>
+  	      
+  	      <div class='call-left'>
+  	        <div class='call-name'><%= link_to history_title(history), history.url, target: '_blank' %></div>
+  	        <div class='call-phone'>Visited: <%= friendly_date(history.last_visited) %></div>
+  	      </div>
+  	    </div>
+      <% end %>
   	<% end %>
   <% else %>
   	<div class="empty-data">No Data</div>

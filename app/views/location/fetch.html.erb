@@ -1,0 +1,16 @@
+<% unless @locations.empty? %>
+	<% @locations.each do |location| %>
+    <div class='call-tag'>
+      <div class='call-kind'><img src='/assets/location.png' /></div>
+      
+      <div class='call-left'>
+        <div class='location-name'><%= friendly_date(location.date) %></div>
+        <div class='location-button'>
+          <a class='button' href="https://www.google.com/maps/place/<%= location_param(location) %>" target='_blank'>Open Map</a>
+        </div>
+      </div>
+    </div>
+	<% end %>
+<% else %>
+	<div class="empty-data">No Data</div>
+<% end %>

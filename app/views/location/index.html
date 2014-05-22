@@ -1,7 +1,36 @@
-<div class='page-name'>Location</div>
-
-<div class='page-data'>
-  <% @locations.each do |location| %>
-    <%= debug location %>
-  <% end %>
+<div class='page-name'>
+  <div class='left'>Location</div>
+  <input type="text" id="datepicker" size="30">
 </div>
+
+<div class='page-data'></div>
+
+<script>
+  $("#datepicker").datepicker();
+  $("#datepicker").datepicker( "option", "dateFormat", "yy-mm-dd" );
+
+  var today = new Date();
+  var d = today.getDate();
+  d = (d < 10) ? ("0" + d) : d;
+  var m = today.getMonth() + 1;
+  m = (m < 10) ? ("0" + m) : m;
+  var y = today.getFullYear(); 
+
+  $("#datepicker").val( y + '-' + m + '-' + d );
+
+  // --------------------------------------------------------- //
+
+  var loadLocations = function(date){
+    var url = '/location/' + window.device + '/fetch/' + date;
+    $.get(url, function(data){
+      var page = $('.page-data');
+      page.html(data);
+    });
+  };
+
+  $('#datepicker').change(function(){
+    loadLocations($(this).val());
+  });
+
+  loadLocations($("#datepicker").val());
+</script>

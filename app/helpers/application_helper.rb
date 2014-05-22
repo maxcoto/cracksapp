@@ -18,6 +18,10 @@ module ApplicationHelper
   end
 
   def friendly_date(date)
+    build_date(date) + " UTC"
+  end
+
+  def build_date(date)
     return "Never" if date == "0"
 
     datetime = DateTime.strptime(date[0, 10], '%s')

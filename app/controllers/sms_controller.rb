@@ -5,9 +5,17 @@ class SmsController < ApplicationController
   def index
     device = Device.find(params[:id])
 
-    sms = device ? Sms.where(device_id: device.id).select('DISTINCT(address), person') : nil
+    @addresses = device ? Sms.where(device_id: device.id).select('DISTINCT(address), person') : nil
 
-    @addresses = sms ? sms.map!{ |s| [(s.person || s.address), s.address] } : nil
+    @addresses.map! do |address|
+      if address.person.empty?
+        query_str = address.address.split(//).last(6).join
+        contact = Contact.where("phones like ?", "%#{query_str}%").first
+        address.person = contact.nil? ? address.address : contact.name
+      end
+
+      [address.person, address.address]
+    end
 
     @address = @addresses.present? ? @addresses[0][1] : nil
 

@@ -36,7 +36,7 @@ $ ->
     $(this).addClass('selected')
 
   autoClickPanel = ->
-    $('#panel-center #general').click()
+    $('#panel-center #location').click()
 
   autoClickPanel()
 
