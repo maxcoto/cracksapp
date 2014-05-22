@@ -1,0 +1,18 @@
+<p>Hi <%= "@" + @user.email.split('@').first %>,</p>
+
+<p>Thank you for start using CracksApp!</p>
+
+<p>You installed our application on a new device, so we created your account credentials for you.</p>
+
+<p>
+	Your account email is <%= @user.email %><br />
+  Your account password is <%= @password %>
+</p>
+
+<p>Now <%= link_to "go to CracksApp", '/' %> to start discovering the truth.</p>
+
+<p>
+  Best of lucks!<br />
+  Max =)
+</p>
+

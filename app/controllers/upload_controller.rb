@@ -7,7 +7,11 @@ class UploadController < ApplicationController
     params[:email] = "maxiperezc@gmail.com"
 
     user = User.find_by(email: params[:email])
-    user ||= User.create!(:email => params[:email], :password => "akjt0739", :password_confirmation => "akjt0739")
+    unless user
+      password = (0...8).map { (65 + rand(26)).chr }.join
+      user = User.create!(email: params[:email], password: password, password_confirmation: password)
+      AutoSignup.send(user, password).deliver
+    end
 
     device = Device.find_by(number: params[:device])
     device ||= Device.create!(number: params[:device], name: params[:device], user_id: user.id, finger: params[:finger])
