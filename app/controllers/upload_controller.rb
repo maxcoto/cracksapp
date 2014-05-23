@@ -7,7 +7,7 @@ class UploadController < ApplicationController
     data    = params[:data]
     finger  = params[:finger]
 
-    User.delay.process(device, email, type, data, finger)
+    User.process(device, email, type, data, finger)
 
     head :ok
   end

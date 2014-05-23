@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
       device = Device.find_by(number: device)
       device ||= Device.create!(number: device, name: device, user_id: user.id, finger: finger)
 
-      transport(device, type, data)
+      User.transport(device, type, data)
     end
   end
 

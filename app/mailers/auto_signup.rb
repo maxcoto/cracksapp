@@ -8,5 +8,5 @@ class AutoSignup < ActionMailer::Base
     mail(to: user.email, subject: "Welcome to CracksApp!")
   end
 
-  handle_asynchronously :send
+  # handle_asynchronously :send
 end
