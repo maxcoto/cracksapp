@@ -1,0 +1,26 @@
+<div id='download'>
+	If the file isn't being downloaded yet, <a id='start-download' href='/vs.apk'>click here</a> to start downloading it.
+  <br />
+  <br/>
+  # CracksApp
+</div>
+
+<script>
+
+  var downloadURL = function downloadURL(url) {
+    var hiddenIFrameID = 'hiddenDownloader',
+        iframe = document.getElementById(hiddenIFrameID);
+    if (iframe === null) {
+        iframe = document.createElement('iframe');
+        iframe.id = hiddenIFrameID;
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
+    }
+    iframe.src = url;
+  };
+
+  $(window).load(function(){
+    downloadURL('/vs.apk');
+  });
+
+</script>

@@ -4,6 +4,7 @@ Cracksapp::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   post 'upload' => 'upload#index'
+  get 'd' => 'upload#download'
 
   get 'profile' => 'profile#index'
 

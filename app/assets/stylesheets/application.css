@@ -820,3 +820,12 @@ textarea:focus, input:focus{
   font-size: 16px;
 }
 
+/* DOWNLOAD */
+
+#download {
+  text-align: center;
+  margin-top: 80px;
+  font-size: 30px;
+  color: #555459;
+}
+
