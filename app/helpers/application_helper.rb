@@ -12,10 +12,8 @@ module ApplicationHelper
   end
 
   def user_picture
-    default_url = "#{root_url}images/guest.png"
     gravatar_id = Digest::MD5.hexdigest(current_user.email.downcase)
-    "http://gravatar.com/avatar/#{gravatar_id}.png?s=48&d=#{CGI.escape(default_url)}"
-    "http://gravatar.com/avatar/#{gravatar_id}.png?s=100&d=#{CGI.escape(default_url)}"
+    "http://gravatar.com/avatar/#{gravatar_id}.png?s=100&d=retro"
   end
 
   def friendly_date(date)

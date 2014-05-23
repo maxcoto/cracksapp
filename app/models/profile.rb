@@ -4,10 +4,10 @@ class Profile < ActiveRecord::Base
 
   def self.store(data, device)
     data.each do |profile|
-      s = Profile.find_by(device_id: device.id, key: sms["key"])
+      s = Profile.find_by(device_id: device.id, key: encode(profile["first"]))
       s ||= Profile.create!(
-        key: encode(profile["key"]),
-        value: encode(profile["value"]),
+        key: encode(profile["first"]),
+        value: encode(profile["second"]),
         device_id: device.id
       )
     end

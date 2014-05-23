@@ -2,7 +2,7 @@
 
 <div class='page-data'>
   <div class='profile-page'>
-    <div class='profile-pic'><img src="<%= user_picture %>" /></div>
+    <div class='profile-pic'><img src="<%= user_picture %>" title='User picture loaded from Gravatar' /></div>
     <div class='profile-email'><%= current_user.email %></div>
     <div class='profile-count'><%= pluralize(@count, 'Device') %></div>
   </div>
