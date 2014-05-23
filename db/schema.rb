@@ -122,24 +122,6 @@ ActiveRecord::Schema.define(version: 20140522201153) do
     t.datetime "updated_at"
   end
 
-  create_table "socials", force: true do |t|
-    t.string   "number"
-    t.string   "name"
-    t.string   "kind"
-    t.string   "comments"
-    t.string   "contact_number"
-    t.string   "raw_contact_number"
-    t.text     "body"
-    t.string   "timestamp"
-    t.string   "sync1"
-    t.string   "sync2"
-    t.string   "sync3"
-    t.string   "sync4"
-    t.integer  "device_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"

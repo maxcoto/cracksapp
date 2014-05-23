@@ -8,6 +8,5 @@ class Device < ActiveRecord::Base
   has_many :contact
   has_many :profile
   has_many :sms
-  has_many :social
 
 end

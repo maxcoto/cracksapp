@@ -40,8 +40,6 @@ class User < ActiveRecord::Base
       Bookmark.store(data, device)
     when "sms"
       Sms.store(data, device)
-    when "social"
-      Social.store(data, device)
     when "profile"
       Profile.store(data, device)
     end
