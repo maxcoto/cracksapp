@@ -186,6 +186,11 @@ p.alert {
   background-position: -540px -396px;
 }
 
+.is-edit.edit-name {
+  margin-left: 8px;
+  cursor: pointer;
+}
+
 /* END - ICONS */
 
 #main {
@@ -200,6 +205,10 @@ p.alert {
   color: #555459;
   line-height: 40px;
   padding-bottom: 16px;
+}
+
+.page-name.dash {
+  width: 97.5%;
 }
 
 .page-data {
@@ -230,6 +239,12 @@ p.alert {
   padding: 6px 13px;
   border-radius: 5px;
   margin-right: 5px;
+}
+
+#editing-name {
+  position: absolute;
+  top: 0;
+  left: 23px;
 }
 
 #editing-name input[type=text] {
@@ -284,6 +299,111 @@ a.button.gray:hover {
   padding: 6px 25px 5px 25px !important;
 }
 
+.square {
+  width: 100%;
+  margin: 40px 40px 0 0;
+  color: white;
+  text-align: center;
+}
+
+.square .panel-top {
+  width: 100%;
+  height: 50%;
+  margin-bottom: 15px;
+}
+
+.square .panel-bottom {
+  width: 100%;
+  height: 50%;
+}
+
+.square .panel-left {
+  margin-right: 15px;
+}
+
+.square .panel-top .panel-left,
+.square .panel-top .panel-right,
+.square .panel-bottom .panel-left,
+.square .panel-bottom .panel-right {
+  width: 48%;
+  height: 100%;
+  float: left;
+}
+
+.square .panel-top .panel-left {
+  background-color: #fa8564;
+}
+
+.square .panel-top .panel-right {
+  background-color: #1fb5ac;
+}
+
+.square .panel-bottom .panel-left {
+  background-color: #aec785;
+}
+
+.square .panel-bottom .panel-right {
+  background-color: #fdd752;
+}
+
+.square .bigtext {
+  font-size: 28px;
+  font-weight: 800;
+  height: 40%;
+  padding-top: 5vh;
+}
+
+.square .bigtext.location {
+  height: 26%;
+}
+
+.square .details {
+  font-size: 20px;
+  height: 50%;
+}
+
+.square .details .thenames{
+  padding: 0 10px;
+}
+
+.square .details.location {
+  font-size: 15px;
+  font-weight: 800;
+  padding-top: 0;
+}
+
+.square .details span {
+  margin: 0 10px;
+}
+
+table th:first-child {
+  border-left: 1px solid #ddd;
+  width: 300px;
+}
+
+table th {
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  padding: 15px;
+  color: #979797;
+}
+
+table td:first-child {
+  border-left: 1px solid #ddd;
+  position: relative;
+}
+
+table td:last-child {
+  border-right: 1px solid #ddd;
+}
+
+table td {
+  color: #A0A0A0;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  padding: 12px;
+}
+
 /* CALLS */
 
 .call-tag {
@@ -326,7 +446,7 @@ a.button.gray:hover {
   color: rgb(173, 173, 173);
   font-size: 14px;
   margin-right: 15px;
-  width: 140px;
+  width: 200px;
 }
 
 .call-tag .call-date {

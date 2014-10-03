@@ -6,7 +6,7 @@
       <div class='call-left'>
         <div class='location-name'><%= friendly_date(location.date) %></div>
         <div class='location-button'>
-          <a class='button' href="https://www.google.com/maps/place/<%= location_param(location) %>" target='_blank'>Open Map</a>
+          <a class='button' href="<%= location_url(location) %>" target='_blank'>Open in Google Maps</a>
         </div>
       </div>
     </div>

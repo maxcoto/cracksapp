@@ -1,32 +1,69 @@
-<div class='page-name'>General</div>
+<div class='page-name dash'>Dashboard</div>
 
 <div class='page-data'>
-  <div class='info-field' id='first-selector'>
-    <span class='info-key'>Device Name</span>
-    
-    <span id='no-editing-name'>
-      <span class='info-value' id='current-name'><%= device_name(@device) %></span>
-      <span class='icon-small is-edit edit-name'></span>
-    </span>
+  
+  <table width='97.5%' cellspacing='0'>
+    <thead>
+      <th>Device Name</th>
+      <th>Device Number</th>
+      <th>Device Owner</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <span id='no-editing-name'>
+            <span class='info-value' id='current-name'><%= device_name(@device) %></span>
+            <span class='icon-small is-edit edit-name'></span>
+          </span>
+          <span id='editing-name' style='display: none;'>
+            <input id='new-name' type='text' />
+            <a class='set-new-name button'>Set</a>
+          </span>
+        </td>
+        <td>#<%= @device.number %></td>
+        <td><%= @owner %></td>
+      </tr>
+    </tbody>
+  </table>
 
-    <span id='editing-name' style='display: none;'>
-      <input id='new-name' type='text' />
-      <a class='set-new-name button'>Set</a>
-    </span>
+  <div class='square'>
+    <div class='panel-top'>
+      <div class='panel-left'>
+        <div class='bigtext'><%= pluralize(@data[:calls][:all], 'new call') %></div>
+        <div class='details'>
+          <span><%= @data[:calls][:incoming] %> incoming</span>
+          <span><%= @data[:calls][:outgoing] %> outgoing</span>
+          <span><%= @data[:calls][:missed] %> missed</span>
+        </div>
+      </div>
+      <div class='panel-right'>
+        <div class='bigtext'><%= pluralize(@data[:sms][:all], 'new message') %></div>
+        <div class='details'>
+          <span><%= @data[:sms][:inbox] %> inbox</span>
+          <span><%= @data[:sms][:outbox] %> outbox</span>
+        </div>
+      </div>
+    </div>
+    <div class='panel-bottom'>
+      <div class='panel-left'>
+        <div class='bigtext'><%= pluralize(@data[:contacts][:all], 'new contact') %></div>
+        <div class='details'>
+          <span class='thenames'><%= @data[:contacts][:names].present? ? @data[:contacts][:names].join(", ") : "=(" %></span>
+        </div>
+      </div>
+      <div class='panel-right'>
+        <div class='bigtext location'>Location</div>
+        <div class='details location'>
+          <% if @data[:location].present? %>
+            <%= friendly_date(@data[:location].date) %>
+            <div style='padding-top: 30px'>
+              <a class='button' href="<%= location_url(@data[:location]) %>" target='_blank'>Open in Google Maps</a>
+            </div>
+          <% else %>
+            No data available yet
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class='info-field'>
-    <span class='info-key'>Device Number</span>
-    <span class='info-value'>#<%= @device.number %></span>
-  </div>
-  <div class='info-field'>
-    <span class='info-key'>Fingerprint</span>
-    <span class='info-value'><%= @device.finger %></span>
-  </div>
-
-  <% @profiles.each do |profile| %>
-    <div class='info-field'>
-      <span class='info-key'><%= profile.key.capitalize %></span>
-      <span class='info-value'><%= profile.value %></span>
-    </div>      
-  <% end %>
 </div>

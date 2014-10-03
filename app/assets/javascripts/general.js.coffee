@@ -6,7 +6,6 @@
 $ ->
 
   show = ->
-    $('#first-selector').css('padding-top', '29px');
     $('#no-editing-name').hide()
     $('#editing-name').show()
     $('#new-name')
@@ -14,7 +13,6 @@ $ ->
       .focus()
 
   hide = ->
-    $('#first-selector').css('padding-top', '40px');
     $('#editing-name').hide()
     $('#no-editing-name').show()
     

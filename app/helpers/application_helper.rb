@@ -17,24 +17,9 @@ module ApplicationHelper
   end
 
   def friendly_date(date)
-    build_date(date) + " UTC"
-  end
-
-  def build_date(date)
     return "Never" if date == "0"
-
     datetime = DateTime.strptime(date[0, 10], '%s')
-    date = datetime.strftime('%Y-%m-%d')
-    time = datetime.strftime('%H:%M')
-
-    if datetime.to_date == Date.today
-      "Today #{time}"
-    elsif datetime.to_date == Date.yesterday
-      "Yesterday #{time}"
-    else
-      "#{date} #{time}"
-    end
+    local_time(datetime)
   end
-
 end
   

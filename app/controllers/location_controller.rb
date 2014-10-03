@@ -2,13 +2,13 @@ class LocationController < ApplicationController
 
   before_action :authenticate_user!
 
+  before_action :load_device, :only => :fetch
+
   def index
   	render :layout => false
   end
 
   def fetch
-  	device = Device.find(params[:id])
-
   	date = params[:date].split('-')
   	y = date[0].to_i
   	m = date[1].to_i
@@ -21,9 +21,9 @@ class LocationController < ApplicationController
   	finish = finish.to_time.to_i.to_s + '000'
 
   	query = "device_id = ? AND date >= ? AND date <= ?"
-  	where = [query, device.id, start, finish]
+  	where = [query, @device.id, start, finish]
 
-    @locations = device ? Location.where(where).order('date DESC') : nil
+    @locations = @device ? Location.where(where).order('date DESC') : nil
 
     render :layout => false
   end

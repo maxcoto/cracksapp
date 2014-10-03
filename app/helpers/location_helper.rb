@@ -2,6 +2,10 @@ module LocationHelper
 
   CORDS = { 'v' => { '-' => 'S', '+' => 'N' }, 'h' => { '-' => 'W', '+' => 'E' } }
 
+  def location_url(location)
+    "https://www.google.com/maps/place/" + location_param(location)
+  end
+
   def location_param(location)
     dms(location.latitude, 'v') + "+" + dms(location.longitude, 'h')
   end

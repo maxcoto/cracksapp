@@ -2,10 +2,10 @@ class SmsController < ApplicationController
 
   before_action :authenticate_user!
 
-  def index
-    device = Device.find(params[:id])
+  before_action :load_device, :only => [:index, :messages]
 
-    @addresses = device ? Sms.where(device_id: device.id).select('DISTINCT(address), person') : nil
+  def index
+    @addresses = @device ? Sms.where(device_id: @device.id).select('DISTINCT(address), person') : nil
 
     @addresses.map! do |address|
       if address.person.empty?
@@ -23,10 +23,7 @@ class SmsController < ApplicationController
   end
 
   def messages
-  	@device = Device.find(params[:id])
-
   	address = params[:address]
-
   	@sms = (@device && address) ? Sms.where(device_id: @device.id, address: address).order('date') : nil
 
   	render :layout => false

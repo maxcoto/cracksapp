@@ -17,6 +17,7 @@ $ ->
     $('#menu-user').toggleClass('open')
 
   fitScreen = ->
+    $('.square').css('height', $('body').outerHeight() - 250)
     $('#panel-center').css('height', $('body').outerHeight() - 143)
     $('#main').css('width', $('body').outerWidth() - 360)
     $('.page-data').css('height', $('body').outerHeight() - 72)
